@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SYSTEM CRITICAL ERROR</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+
+        #warning {
+            color: red;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px red;
+            animation: blink 0.5s infinite;
+        }
+
+        .glitch {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        #terminal {
+            width: 80%;
+            height: 300px;
+            border: 1px solid #00ff00;
+            padding: 20px;
+            background: rgba(0, 20, 0, 0.9);
+            overflow: hidden;
+            box-shadow: 0 0 20px #00ff00;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .scan-line {
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 255, 0, 0.1);
+            position: absolute;
+            top: 0;
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            from { top: 0; }
+            to { top: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scan-line"></div>
+    <div id="warning">SYSTEM BREACH DETECTED</div>
+    <div class="glitch">Accessing Private Files... 100%</div>
+    <br>
+    <div id="terminal">
+        <p id="log"></p>
+    </div>
+
+    <script>
+        const log = document.getElementById('log');
+        const messages = [
+            "> Initializing bypass...",
+            "> IP Address: 192.168.1.1 [FOUND]",
+            "> Downloading contact list...",
+            "> Accessing camera feed...",
+            "> Locating GPS coordinates...",
+            "> DELETING SYSTEM32...",
+            "> UPLOADING PERSONAL DATA TO DARK WEB...",
+            "> Encryption key: 0x88234BFA [COMPROMISED]"
+        ];
+
+        let i = 0;
+        function typeWriter() {
+            if (i < messages.length) {
+                log.innerHTML += messages[i] + "<br>";
+                i++;
+                setTimeout(typeWriter, 800);
+            } else {
+                log.innerHTML += "<br><span style='color:white'>YOUR DEVICE IS NOW UNDER CONTROL.</span>";
+            }
+        }
+        typeWriter();
+    </script>
+</body>
+</html>
